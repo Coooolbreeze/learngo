@@ -53,4 +53,13 @@ func main() {
 	nRoot.SetValue(10)
 
 	root.postOrder()
+
+	c := root.TraverseWithChannel()
+	maxNode := 0
+	for node := range c {
+		if node.Value > maxNode {
+			maxNode = node.Value
+		}
+	}
+	fmt.Println("Max node value:", maxNode)
 }
